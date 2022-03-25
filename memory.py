@@ -19,7 +19,7 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
-
+Terminado = false
 
 def square(x, y):
     """Draw white square with black outline at (x, y)."""
@@ -92,3 +92,4 @@ tracer(False)
 onscreenclick(tap)
 draw()
 done()
+Terminado = true
