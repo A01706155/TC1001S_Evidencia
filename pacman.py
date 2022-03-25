@@ -7,7 +7,7 @@ Exercises:
 """
 # Importación de librerías random
 from random import choice
-from turtle import *
+from turtle import bgcolor, clear, done, up, goto, dot, update, ontimer, Turtle
 
 from freegames import floor, vector
 
@@ -53,7 +53,10 @@ tiles = [
 
 # Funcion de square, dibuja el tablero usando
 # el camino definido entre (x, y)
+
+
 def square(x, y):
+
     """Draw square using path at (x, y)."""
     path.up()
     path.goto(x, y)
@@ -68,6 +71,8 @@ def square(x, y):
 
 # Funcion offset, compensa la posicion de cada punto
 # de cada tile utilizando 20 pixeles de distancia.
+
+
 def offset(point):
     """Return offset of point in tiles."""
     x = (floor(point.x, 20) + 200) / 20
@@ -77,6 +82,8 @@ def offset(point):
 
 # Funcion valid, valida la posicion a donde se de-
 # be de mover algo es accesible o no hay colision.
+
+
 def valid(point):
     """Return True if point is valid in tiles."""
     index = offset(point)
@@ -93,6 +100,8 @@ def valid(point):
 
 # Funcion mundo, dibuja el mundo de acuerdo al camino
 # realizado y luego lo muestra en pantalla con Turtle
+
+
 def world():
     """Draw world using path."""
     bgcolor('black')
@@ -113,12 +122,14 @@ def world():
 
 # Funcion mover, sirve para mover a pacman y a los
 # fantasmas, también actualiza el puntaje en pantalla.
+
+
 def move():
     """Move pacman and all ghosts."""
     writer.undo()  # Borra el puntaje
-    writer.write(state['score']) # Escribe el puntaje
+    writer.write(state['score'])  # Escribe el puntaje
 
-    clear() # Limpia la pantalla
+    clear()  # Limpia la pantalla
 
     # Valida si pacman no colisiona, permite
     # el cambio de direccion por cada ciclo
@@ -173,6 +184,8 @@ def move():
 
 # Revisa la direccion de pacman y la
 # valida cada vez que se solicita.
+
+
 def change(x, y):
     """Change pacman aim if valid."""
     if valid(pacman + vector(x, y)):
@@ -180,24 +193,32 @@ def change(x, y):
         aim.y = y
 
 # Define parametros de Turtle
-setup(420, 420, 370, 0)
-hideturtle()
-tracer(False)
+
+
+Turtle.setup(420, 420, 370, 0)
+Turtle.hideturtle()
+Turtle.tracer(False)
 
 # Define posicion, color y valor
 # del puntaje en pantalla.
+
+
 writer.goto(160, 160)
 writer.color('white')
 writer.write(state['score'])
-listen()
+Turtle.listen()
 
 # Velocidad y direccion de pacman
-onkey(lambda: change(5, 0), 'Right')
-onkey(lambda: change(-5, 0), 'Left')
-onkey(lambda: change(0, 5), 'Up')
-onkey(lambda: change(0, -5), 'Down')
+
+
+Turtle.onkey(lambda: change(5, 0), 'Right')
+Turtle.onkey(lambda: change(0, 5), 'Up')
+Turtle.onkey(lambda: change(0, -5), 'Down')
+Turtle.onkey(lambda: change(-5, 0), 'Left')
 
 # Parametros de actualizacion
+
+
 world()
 move()
 done()
