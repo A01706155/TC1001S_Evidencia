@@ -19,6 +19,12 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
+<<<<<<< HEAD
+=======
+terminado = False
+#contador de taps
+count=0
+>>>>>>> d83359efb6e455fc6ead77ef786aab2c6a75faac
 
 def square(x, y):
     """Draw white square with black outline at (x, y)."""
@@ -50,13 +56,20 @@ def tap(x, y):
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         state['mark'] = spot
+<<<<<<< HEAD
         print("tap")
         
+=======
+        #cada tap imprime el contador
+        print("tap "+count)
+        count=count + 1
+>>>>>>> d83359efb6e455fc6ead77ef786aab2c6a75faac
     else:
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
-        print("tap")
+        count=count + 1
+        print("tap "+count)
 
 
 def draw():
@@ -92,3 +105,5 @@ tracer(False)
 onscreenclick(tap)
 draw()
 done()
+#el dibujo ha sido completado
+terminado = True
