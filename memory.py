@@ -9,6 +9,7 @@ Exercises:
 5. Use letters instead of tiles.
 """
 
+from itertools import accumulate
 from random import *
 from turtle import *
 
@@ -50,10 +51,12 @@ def tap(x, y):
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         state['mark'] = spot
+        print("tap")
     else:
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+        print("tap")
 
 
 def draw():
@@ -62,7 +65,7 @@ def draw():
     goto(0, 0)
     shape(car)
     stamp()
-
+    
     for count in range(64):
         if hide[count]:
             x, y = xy(count)
