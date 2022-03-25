@@ -20,10 +20,10 @@ aim = vector(5, 0)
 # Define las ubicaciones de inicio de
 pacman = vector(-20, -180)
 ghosts = [
-    [vector(-160, 160), vector(5, 0)],
-    [vector(-160, 0), vector(0, 5)],
-    [vector(120, 160), vector(0, -5)],
-    [vector(120, 0), vector(-5, 0)],
+    [vector(-160, 160), vector(15, 0)],
+    [vector(-160, 0), vector(0, 15)],
+    [vector(120, 160), vector(0, -15)],
+    [vector(120, 0), vector(-15, 0)],
 ]
 # fmt: off
 # A través de este array se define el tablero del juego:
@@ -148,10 +148,10 @@ def move():
             point.move(course)
         else:
             options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
+                vector(15, 0),
+                vector(-15, 0),
+                vector(0, 15),
+                vector(0, -15),
             ]
             plan = choice(options)
             course.x = plan.x
