@@ -20,7 +20,6 @@ tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
 
-
 def square(x, y):
     """Draw white square with black outline at (x, y)."""
     up()
@@ -52,6 +51,7 @@ def tap(x, y):
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         state['mark'] = spot
         print("tap")
+        
     else:
         hide[spot] = False
         hide[mark] = False
