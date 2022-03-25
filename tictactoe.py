@@ -46,8 +46,8 @@ players = [drawx, drawo]
 
 def tap(x, y):
     """Draw X or O in tapped square."""
-    x = floor(67)
-    y = floor(50)
+    x = floor(x)
+    y = floor(y)
     player = state['player']
     draw = players[player]
     draw(x, y)
