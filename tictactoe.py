@@ -42,7 +42,10 @@ def floor(value):
 
 state = {'player': 0}
 players = [drawx, drawo]
-
+places_on_grid = [
+    " ", " ", " ",
+    " ", " ", " ",
+    " ", " ", " "]
 
 def tap(x, y):
     """Draw X or O in tapped square."""
@@ -52,6 +55,81 @@ def tap(x, y):
     draw = players[player]
     draw(x, y)
     update()
+    if x == -200 and y == 66:
+        if places_on_grid[1] == " ":
+            places_on_grid[1] = 1
+            draw(x, y)
+            update()
+            state['player'] = not player
+        elif places_on_grid[1] != "":
+            print("No disponible")
+
+    elif x == 66 and y == 66:
+        if places_on_grid[2] == " ":
+            places_on_grid[2] = 1
+            draw(x, y)
+            update()
+            state['player'] = not player
+        elif places_on_grid[2] != "":
+            print("No disponible")
+
+    elif x == -200 and y == -67:
+        if places_on_grid[3] == " ":
+            places_on_grid[3] = 1
+            draw(x, y)
+            update()
+        elif places_on_grid[3] != "":
+            print("No disponible")
+
+    elif x == -67 and y == -67:
+        if places_on_grid[4] == " ":
+            places_on_grid[4] = 1
+            draw(x, y)
+            update()
+        elif places_on_grid[4] != "":
+            print("No disponible")
+
+    elif x == 66 and y == -67:
+        if places_on_grid[5] == " ":
+            places_on_grid[5] = 1
+            draw(x, y)
+            update()
+        elif places_on_grid[5] != "":
+            print("No disponible")
+
+    elif x == -200 and y == -200:
+        if places_on_grid[6] == " ":
+            places_on_grid[6] = 1
+            draw(x, y)
+            update()
+        elif places_on_grid[6] != "":
+            print("No disponible")
+
+    elif x == -67 and y == -200:
+        if places_on_grid[7] == " ":
+            places_on_grid[7] = 1
+            draw(x, y)
+            update()
+        elif places_on_grid[7] != "":
+            print("No disponible")
+
+    elif x == 66 and y == -200:
+        if places_on_grid[8] == " ":
+            places_on_grid[8] = 1
+            draw(x, y)
+            update()
+
+        elif places_on_grid[8] != "":
+            print("No disponible")
+
+    elif x == 66 and y == -200:
+        if places_on_grid[9] == " ":
+            places_on_grid[9] = 1
+            draw(x, y)
+            update()
+        elif places_on_grid[9] != "":
+            print("No disponible")
+
     state['player'] = not player
 
 
