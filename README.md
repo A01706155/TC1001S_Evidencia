@@ -37,3 +37,17 @@ Estos son los casos posibles:
 * Los cambios realizados en el juego fueron:
     1. Cambiar el tablero del juego.
     2. Modificar la velocidad de los fantasmas.
+
+## Memory - Flavio, A01367631
+* Memory es un juego de memoria donde poco a poco vas desarrollando una imagen.
+* Para ejecutarlo se debe usar `python memory.py`
+* Los cambios realizados en el juego fueron:
+    1. Crear un contador de cuantos taps hay. (se imprime en consola)
+    2. Saber cuándo termina el juego. (se imprime en consola)
+
+## Tic-Tac-Toe - Diego, A01704492
+* Tic-Tac-Toe es un juego de gato común donde debes ganarle a otra persona al crear una línea de tres.
+* Para ejecutarlo se debe usar `python tictactoe.py`
+* Los cambios realizados en el juego fueron:
+    1. Cambiar el tamaño de las X, las O y centrarlos.
+    2. Validar si una casilla ya se encuentra ocupada.
