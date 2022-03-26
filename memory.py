@@ -74,7 +74,7 @@ def draw():
     if check_tiles():
         dibujador.undo()
         clear()
-        dibujador.write("Se acabo", font=('Impact', 30, 'normal'))
+        print("Se acabo el juego")
 
     """Draw image and tiles."""
     clear()
