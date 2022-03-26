@@ -12,7 +12,7 @@ from random import shuffle
 from turtle import up, goto, down, color, begin_fill, forward,\
     left, end_fill, clear, shape, stamp, write, update,\
     ontimer, setup, addshape, hideturtle, tracer,\
-    onscreenclick, done
+    onscreenclick, done, Turtle, listen
 
 from freegames import path
 
@@ -22,7 +22,8 @@ state = {'mark': None}
 hide = [True] * 64
 terminado = False
 # Contador de taps
-counter = 0
+counter = {'contador': 0}
+dibujador = Turtle(visible=False)
 
 
 def square(x, y):
@@ -53,18 +54,28 @@ def tap(x, y):
     spot = index(x, y)
     mark = state['mark']
 
+    dibujador.undo()
+    dibujador.write(counter['contador'], font=('Impact', 18, 'normal'))
+    counter['contador'] += 1
+    clear()
+    spot = index(x, y)
+    mark = state['mark']
+
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         state['mark'] = spot
-        # Cada tap imprime el contador
-        print("tap")
     else:
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
-        print("tap")
 
 
 def draw():
+    """ Revisa si ya se acabaron los cuadros """
+    if check_tiles():
+        dibujador.undo()
+        clear()
+        dibujador.write("Se acabo", font=('Impact', 30, 'normal'))
+
     """Draw image and tiles."""
     clear()
     goto(0, 0)
@@ -82,17 +93,29 @@ def draw():
         up()
         goto(x + 2, y)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles[mark], font=('Arial', 20, 'normal'))
 
     update()
     ontimer(draw, 100)
 
 
+def check_tiles():
+    for i in range(64):
+        if hide[i]:
+            return False
+    return True
+
+
 shuffle(tiles)
-setup(420, 420, 370, 0)
+setup(500, 500, 370, 0)
 addshape(car)
 hideturtle()
 tracer(False)
+dibujador.goto(-200, 200)
+dibujador.color('black')
+dibujador.write(counter['contador'], font=('Impact', 18, 'normal'))
+clear()
+listen()
 onscreenclick(tap)
 draw()
 done()
