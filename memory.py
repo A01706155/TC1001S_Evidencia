@@ -8,10 +8,11 @@ Exercises:
 4. Center single-digit tile.
 5. Use letters instead of tiles.
 """
-
-from itertools import accumulate
-from random import *
-from turtle import *
+from random import shuffle
+from turtle import up, goto, down, color, begin_fill, forward,\
+    left, end_fill, clear, shape, stamp, write, update,\
+    ontimer, setup, addshape, hideturtle, tracer,\
+    onscreenclick, done
 
 from freegames import path
 
@@ -19,12 +20,10 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
-<<<<<<< HEAD
-=======
 terminado = False
-#contador de taps
-count=0
->>>>>>> d83359efb6e455fc6ead77ef786aab2c6a75faac
+# Contador de taps
+counter = 0
+
 
 def square(x, y):
     """Draw white square with black outline at (x, y)."""
@@ -56,20 +55,13 @@ def tap(x, y):
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         state['mark'] = spot
-<<<<<<< HEAD
+        # Cada tap imprime el contador
         print("tap")
-        
-=======
-        #cada tap imprime el contador
-        print("tap "+count)
-        count=count + 1
->>>>>>> d83359efb6e455fc6ead77ef786aab2c6a75faac
     else:
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
-        count=count + 1
-        print("tap "+count)
+        print("tap")
 
 
 def draw():
@@ -78,7 +70,6 @@ def draw():
     goto(0, 0)
     shape(car)
     stamp()
-    
     for count in range(64):
         if hide[count]:
             x, y = xy(count)
@@ -105,5 +96,8 @@ tracer(False)
 onscreenclick(tap)
 draw()
 done()
-#el dibujo ha sido completado
+# El dibujo ha sido completado
 terminado = True
+print(terminado)
+print(counter)
+  
