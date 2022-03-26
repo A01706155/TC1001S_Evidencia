@@ -36,18 +36,24 @@ Estos son los casos posibles:
 * Para ejecutarlo se debe usar `python pacman.py`
 * Los cambios realizados en el juego fueron:
     1. Cambiar el tablero del juego.
+        * Para esto se realizó un cambio en el array del tablero modificando 1's y 0's
     2. Modificar la velocidad de los fantasmas.
+        * Para esto se realizo un cambio en el movimiento vectorial de inicio y de cambio en los valores del fantasma.
 
 ## Memory - Flavio, A01367631
 * Memory es un juego de memoria donde poco a poco vas desarrollando una imagen.
 * Para ejecutarlo se debe usar `python memory.py`
 * Los cambios realizados en el juego fueron:
-    1. Crear un contador de cuantos taps hay. (se imprime en consola)
+    1. Crear un contador de cuantos taps hay. (se imprime en consola y en el juego)
+        * Para esto se utilizó una variable que almacena los toques y los imprime en pantalla mediante el método write especificando tamaño y fuente de letra así como una posición.
     2. Saber cuándo termina el juego. (se imprime en consola)
+        * Para esto sólamente se añadió una función que comprueba cuando ya no hay más tiles e imprime en consola cuando se termina el juego como tal.
 
 ## Tic-Tac-Toe - Diego, A01704492
 * Tic-Tac-Toe es un juego de gato común donde debes ganarle a otra persona al crear una línea de tres.
 * Para ejecutarlo se debe usar `python tictactoe.py`
 * Los cambios realizados en el juego fueron:
     1. Cambiar el tamaño de las X, las O y centrarlos.
+        * Para esto se cambió manualmente la forma de vectores que se dibujaban.
     2. Validar si una casilla ya se encuentra ocupada.
+        * Para esto se revisaba si ya existia la casilla ocupada en base a la posición y a un array que registraba cada uno.
