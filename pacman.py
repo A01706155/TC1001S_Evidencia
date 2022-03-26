@@ -7,7 +7,8 @@ Exercises:
 """
 # Importación de librerías random
 from random import choice
-from turtle import bgcolor, clear, done, up, goto, dot, update, ontimer, Turtle
+from turtle import bgcolor, clear, done, up, goto, dot, update, ontimer,\
+    setup, hideturtle, tracer, listen, onkey, Turtle
 
 from freegames import floor, vector
 
@@ -195,9 +196,9 @@ def change(x, y):
 # Define parametros de Turtle
 
 
-Turtle.setup(420, 420, 370, 0)
-Turtle.hideturtle()
-Turtle.tracer(False)
+setup(420, 420, 370, 0)
+hideturtle()
+tracer(False)
 
 # Define posicion, color y valor
 # del puntaje en pantalla.
@@ -206,15 +207,15 @@ Turtle.tracer(False)
 writer.goto(160, 160)
 writer.color('white')
 writer.write(state['score'])
-Turtle.listen()
+listen()
 
 # Velocidad y direccion de pacman
 
 
-Turtle.onkey(lambda: change(5, 0), 'Right')
-Turtle.onkey(lambda: change(0, 5), 'Up')
-Turtle.onkey(lambda: change(0, -5), 'Down')
-Turtle.onkey(lambda: change(-5, 0), 'Left')
+onkey(lambda: change(5, 0), 'Right')
+onkey(lambda: change(0, 5), 'Up')
+onkey(lambda: change(0, -5), 'Down')
+onkey(lambda: change(-5, 0), 'Left')
 
 # Parametros de actualizacion
 
