@@ -95,6 +95,7 @@ def tap(x, y):
         state['mark'] = None
 
 
+# Dibuja las actualizaciones y revisa cuando ya no hay tiles
 def draw():
     """ Revisa si ya se acabaron los cuadros """
     if check_tiles():
@@ -123,19 +124,23 @@ def draw():
     ontimer(draw, 100)
 
 
+# Parametros de turtle
 shuffle(tiles)
 setup(500, 500, 370, 0)
 addshape(car)
 hideturtle()
 tracer(False)
+# Parte del contador, se va a la esquina sup izq.
 dibujador.goto(-200, 200)
+# Se dibuja con impact y no en negritas.
 dibujador.write(counter['contador'], font=('Impact', 18, 'normal'))
 clear()
 listen()
 onscreenclick(tap)
 draw()
 done()
-# El dibujo ha sido completado
+# El dibujo ha sido completado.
 terminado = True
+# Imprime en consola cuando acabo y el contador.
 print(terminado)
 print(counter)
